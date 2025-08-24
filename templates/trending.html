@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="trending-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">
+      <i class="fas fa-fire"></i>
+      <span>Trending Recipes</span>
+    </h1>
+    <p class="page-subtitle">Discover what's hot in the culinary world right now!</p>
+  </div>
+
+  <!-- Trending Stats -->
+  <div class="trending-stats">
+    <div class="stat-item">
+      <div class="stat-icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="stat-content">
+        <h3>Most Popular</h3>
+        <p>Updated daily</p>
+      </div>
+    </div>
+    
+    <div class="stat-item">
+      <div class="stat-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="stat-content">
+        <h3>Community Favorites</h3>
+        <p>Highly rated</p>
+      </div>
+    </div>
+    
+    <div class="stat-item">
+      <div class="stat-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="stat-content">
+        <h3>Fresh Updates</h3>
+        <p>Real-time trends</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Trending Button -->
+  <div class="trending-actions">
+    <button class="btn btn-primary btn-large" onclick="loadTrending()">
+      <i class="fas fa-rocket"></i>
+      <span>Discover Trending Recipes</span>
+      <div class="btn-ripple"></div>
+    </button>
+  </div>
+
+  <!-- Results Container -->
+  <div id="trendingResults" class="results-container">
+    <div class="empty-state">
+      <div class="empty-icon">
+        <i class="fas fa-fire"></i>
+      </div>
+      <h3 class="empty-title">Ready to Explore Trending Recipes?</h3>
+      <p class="empty-description">Click the button above to load the hottest recipes that everyone is talking about!</p>
+    </div>
+  </div>
+
+  <!-- Full Recipe Details -->
+  <div id="fullRecipe"></div>
+</div>
+
+<!-- Floating Action Button for Quick Actions -->
+<div class="floating-actions">
+  <div class="fab-container">
+    <button class="fab main-fab">
+      <i class="fas fa-plus"></i>
+    </button>
+    <div class="fab-options">
+      <button class="fab-option" onclick="window.location.href='{{ url_for('ingredients_page') }}'" title="Generate Recipe">
+        <i class="fas fa-magic"></i>
+      </button>
+      <button class="fab-option" onclick="loadTrending()" title="Refresh Trending">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+      <button class="fab-option" onclick="window.location.href='{{ url_for('index') }}'" title="Go Home">
+        <i class="fas fa-home"></i>
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}

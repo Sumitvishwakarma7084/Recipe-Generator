@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="ingredients-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">
+      <i class="fas fa-carrot"></i>
+      <span>Create Your Recipe</span>
+    </h1>
+    <p class="page-subtitle">Tell us what ingredients you have, and we'll create magic!</p>
+  </div>
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <div class="form-wrapper">
+      <form id="ingredientsForm" class="recipe-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ingredientsInput">
+              <i class="fas fa-list"></i>
+              <span>What ingredients do you have?</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="ingredientsInput" placeholder="e.g., tomato, chicken, rice, garlic" required>
+              <div class="input-focus-effect"></div>
+            </div>
+            <small class="form-help">Separate multiple ingredients with commas</small>
+          </div>
+
+          <div class="form-group">
+            <label for="dietSelect">
+              <i class="fas fa-leaf"></i>
+              <span>Diet Preference</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="dietSelect">
+                <option value="any">Any Diet</option>
+                <option value="veg">Vegetarian</option>
+                <option value="non-veg">Non-Vegetarian</option>
+              </select>
+              <i class="fas fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="timeInput">
+              <i class="fas fa-clock"></i>
+              <span>Max Cooking Time</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="range" id="timeRange" min="10" max="240" value="45" oninput="updateTimeDisplay(this.value)">
+              <input type="number" id="timeInput" value="45" min="10" max="240" onchange="updateTimeRange(this.value)">
+              <div class="time-display">
+                <span id="timeDisplay">45</span> minutes
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cuisineInput">
+              <i class="fas fa-globe"></i>
+              <span>Cuisine (Optional)</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="cuisineInput" placeholder="e.g., Italian, Mexican, Asian">
+              <div class="input-focus-effect"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large">
+            <i class="fas fa-utensils"></i>
+            <span>Generate Amazing Recipes</span>
+            <div class="btn-ripple"></div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div id="recipeResults" class="results-container">
+    <div class="empty-state">
+      <div class="empty-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3 class="empty-title">Your Recipe Ideas Will Appear Here</h3>
+      <p class="empty-description">Enter ingredients above and click "Generate Recipes" to get personalized recipe suggestions.</p>
+    </div>
+  </div>
+
+  <!-- Recipe Detail Container -->
+  <div id="suggestedRecipeDetail"></div>
+</div>
+
+<!-- Quick Ingredient Suggestions -->
+<div class="quick-suggestions">
+  <h4>Quick Ingredient Ideas:</h4>
+  <div class="suggestion-tags">
+    <span class="suggestion-tag" onclick="addIngredient('tomato, onion, garlic')">
+      <i class="fas fa-seedling"></i> Basics
+    </span>
+    <span class="suggestion-tag" onclick="addIngredient('chicken, rice, vegetables')">
+      <i class="fas fa-drumstick-bite"></i> Protein & Carbs
+    </span>
+    <span class="suggestion-tag" onclick="addIngredient('pasta, cheese, herbs')">
+      <i class="fas fa-cheese"></i> Italian Style
+    </span>
+    <span class="suggestion-tag" onclick="addIngredient('beans, spices, yogurt')">
+      <i class="fas fa-pepper-hot"></i> Indian Style
+    </span>
+  </div>
+</div>
+{% endblock %}

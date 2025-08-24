@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="gradient-text">Welcome to</span>
+        <span class="main-title">Recipe Generator</span>
+        <span class="hero-emoji">🍲</span>
+      </h1>
+      
+      <p class="hero-description">
+        Discover delicious recipes based on ingredients you have or explore trending dishes from around the world. 
+        Our AI-powered recipe generator will help you create amazing meals with whatever ingredients you have on hand!
+      </p>
+
+      <!-- Stats Cards -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">1000+</h3>
+            <p class="stat-label">Recipes Generated</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">500+</h3>
+            <p class="stat-label">Happy Cooks</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">4.9</h3>
+            <p class="stat-label">Average Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="home-buttons">
+        <button class="btn btn-primary" onclick="window.location.href='{{ url_for('ingredients_page') }}'">
+          <i class="fas fa-magic"></i>
+          <span>Generate Recipe</span>
+          <div class="btn-ripple"></div>
+        </button>
+        
+        <button class="btn btn-secondary" onclick="window.location.href='{{ url_for('trending_page') }}'">
+          <i class="fas fa-fire"></i>
+          <span>View Trending</span>
+          <div class="btn-ripple"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Image/Animation -->
+    <div class="hero-animation">
+      <div class="cooking-pot">
+        <div class="pot-body"></div>
+        <div class="pot-handle"></div>
+        <div class="steam steam1"></div>
+        <div class="steam steam2"></div>
+        <div class="steam steam3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <h2 class="section-title">Why Choose RecipeGen?</h2>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>AI-Powered</h3>
+        <p>Smart algorithm suggests recipes based on your available ingredients</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Quick & Easy</h3>
+        <p>Get recipe suggestions in seconds with step-by-step instructions</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>Diet Friendly</h3>
+        <p>Supports vegetarian, non-vegetarian, and various dietary preferences</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <h3>Video Tutorials</h3>
+        <p>Watch cooking videos to learn recipes step by step</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
